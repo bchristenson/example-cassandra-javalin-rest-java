@@ -10,7 +10,7 @@ server.
 The project is presently using the Apache Cassandra 3.x driver.  The 4.x driver 
 has significant improvements that remove the need for the asynchronous 
 boilerplate code in 
-[src/main/java/com/kineticdata/examples/javalin/daos/WidgetDao.java](WidgetDao)
+[WidgetDao](src/main/java/com/kineticdata/examples/javalin/daos/WidgetDao.java)
 (most notably natively working with CompletableFuture rather than Guava's 
 ListenableFuture and better built in support for asynchronous paging), however
 it has yet to be release as of the time of this writing.
@@ -20,6 +20,18 @@ the Javalin framework is even more impressive when usin Kotlin.  The intent of
 this project was to demonstrate the asynchronous interactions between Cassandra
 and Javalin in Java, however I'm also working on an example project using
 Cassandra and Javalin in Kotlin.
+
+The portion of the project that leverages Cassandra is in the
+[WidgetDao](src/main/java/com/kineticdata/examples/javalin/daos/WidgetDao.java)
+and the portion of the project that leverages Javalin is in the 
+[ExampleApp](src/main/java/com/kineticdata/examples/javalin/ExampleApp.java).
+
+There is also an example E2E test available in the
+[ExampleAppE2ETest](src/test/java/com/kineticdata/examples/javalin/ExampleAppE2ETest.java),
+that extends the
+[E2ETestBase](src/test/java/testing/kineticdata/examples/javalin/E2ETestBase.java)
+class, which is responsible for starting the Javalin webserver in a background
+thread for E2E tests.
 
 ## About Me
 
